@@ -1,0 +1,27 @@
+language: c
+
+jobs:
+  include:
+    - os: linux
+      dist: xenial
+    - os: osx
+    - os: windows
+
+before_install:
+  - echo "Setting up minimal test environment for $TRAVIS_OS_NAME"
+
+script:
+  - echo "Running minimal build script on $TRAVIS_OS_NAME"
+  - gcc --version || echo "GCC not found"
+  - echo "Build successful for $TRAVIS_OS_NAME"
+
+deploy:
+  provider: releases
+  dpl_version: 2.0.5.2
+  token: "$GITHUBKey"
+  file: "$TRAVIS_OS_NAME-build-output.txt"
+  on:
+    tags: true
+
+after_success:
+  - echo "Build and deploy test completed for $TRAVIS_OS_NAME!" > "$TRAVIS_OS_NAME-build-output.txt"
