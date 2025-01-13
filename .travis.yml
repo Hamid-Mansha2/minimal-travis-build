@@ -8,7 +8,7 @@ jobs:
     - os: windows
 
 before_install:
-  - echo "Setting up minimal test environment for $TRAVIS_OS_NAME"
+  - echo "Setting up minimal test environments for $TRAVIS_OS_NAME"
 
 script:
   - echo "Running minimal build script on $TRAVIS_OS_NAME"
