@@ -17,7 +17,7 @@ script:
 
 deploy:
   provider: releases
-  dpl_version: 2.0.5.2
+  dpl_version: 2.0.5.3
   token: "$GITHUBKey"
   file: "$TRAVIS_OS_NAME-build-output.txt"
   on:
